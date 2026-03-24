@@ -28,8 +28,52 @@ async function getMetrics() {
   }
 }
 
+async function getLatestMemo(): Promise<{ date: string; preview: string; url: string; logsUrl: string } | null> {
+  try {
+    const ghToken = process.env.GITHUB_TOKEN;
+    const headers: Record<string, string> = {
+      Accept: "application/vnd.github.v3+json",
+    };
+    if (ghToken) headers["Authorization"] = `token ${ghToken}`;
+
+    const listRes = await fetch(
+      "https://api.github.com/repos/ruizhi1201/sonny-logs/contents/memos",
+      { headers, next: { revalidate: 300 } }
+    );
+    if (!listRes.ok) return null;
+
+    const files = await listRes.json();
+    if (!Array.isArray(files) || files.length === 0) return null;
+
+    const sorted = files
+      .filter((f: { name: string }) => f.name.endsWith(".md"))
+      .sort((a: { name: string }, b: { name: string }) => b.name.localeCompare(a.name));
+
+    if (sorted.length === 0) return null;
+
+    const latest = sorted[0];
+    const fileRes = await fetch(latest.url, { headers, next: { revalidate: 300 } });
+    if (!fileRes.ok) return null;
+
+    const fileData = await fileRes.json();
+    const content = Buffer.from(fileData.content, "base64").toString("utf-8");
+    const preview = content.slice(0, 500);
+    const date = latest.name.replace(".md", "");
+
+    return {
+      date,
+      preview,
+      url: latest.html_url,
+      logsUrl: "https://github.com/ruizhi1201/sonny-logs",
+    };
+  } catch {
+    return null;
+  }
+}
+
 export default async function Home() {
   const metrics = await getMetrics();
+  const latestMemo = await getLatestMemo();
   const lastUpdated = new Date().toLocaleString("en-US", {
     month: "short",
     day: "numeric",
@@ -41,7 +85,7 @@ export default async function Home() {
 
   return (
     <PasswordGate>
-      <Dashboard metrics={metrics} lastUpdated={lastUpdated} />
+      <Dashboard metrics={metrics} lastUpdated={lastUpdated} latestMemo={latestMemo} />
     </PasswordGate>
   );
 }
