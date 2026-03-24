@@ -10,9 +10,17 @@ interface MetricsData {
   error?: string;
 }
 
+interface MemoData {
+  date: string;
+  preview: string;
+  url: string;
+  logsUrl: string;
+}
+
 interface DashboardProps {
   metrics: MetricsData;
   lastUpdated: string;
+  latestMemo: MemoData | null;
 }
 
 const PROJECTS = [
@@ -33,9 +41,9 @@ const PROJECTS = [
   {
     name: "Sonny Logs",
     status: "building" as const,
-    url: "#",
+    url: "https://github.com/ruizhi1201/sonny-logs",
     statusColor: "#3B82F6",
-    statusLabel: "Planned",
+    statusLabel: "Active",
   },
 ];
 
@@ -56,15 +64,16 @@ const DECISIONS = [
 
 const QUICK_LINKS = [
   { label: "Dayryz", url: "https://dayryz.com", emoji: "🌐" },
-  { label: "NextSport", url: "https://nextsport-i82eo57mq-ruizhi1201s-projects.vercel.app", emoji: "⚽" },
+  { label: "NextSport", url: "https://nextsport-i82eo57mq-ruizhi1201s-projects.vercel.app", emoji: "⚾" },
   { label: "Stripe", url: "https://dashboard.stripe.com", emoji: "💳" },
   { label: "Supabase (D)", url: "https://supabase.com", emoji: "🗄️" },
   { label: "Supabase (N)", url: "https://supabase.com", emoji: "🗄️" },
   { label: "GitHub", url: "https://github.com/ruizhi1201", emoji: "🐙" },
   { label: "Vercel", url: "https://vercel.com", emoji: "▲" },
+  { label: "Sonny Logs", url: "https://github.com/ruizhi1201/sonny-logs", emoji: "📓" },
 ];
 
-export default function Dashboard({ metrics, lastUpdated }: DashboardProps) {
+export default function Dashboard({ metrics, lastUpdated, latestMemo }: DashboardProps) {
   const router = useRouter();
 
   return (
@@ -154,12 +163,61 @@ export default function Dashboard({ metrics, lastUpdated }: DashboardProps) {
             </div>
           </section>
 
-          {/* Section 3 — Tasks */}
+          {/* Section 3 — R&D Team Memo */}
+          <section>
+            <div className="flex items-center justify-between mb-3">
+              <h2 className="text-white font-semibold text-base">🧠 R&D Team Memo</h2>
+              {latestMemo && (
+                <a
+                  href={latestMemo.logsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs"
+                  style={{ color: "#6B7280" }}
+                >
+                  Sonny Logs →
+                </a>
+              )}
+            </div>
+            <div
+              className="rounded-2xl p-4"
+              style={{ background: "#111827", border: "1px solid #1f2937" }}
+            >
+              {latestMemo ? (
+                <>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-xs font-medium px-2 py-0.5 rounded-full" style={{ background: "#1e3a5f", color: "#60a5fa" }}>
+                      {latestMemo.date}
+                    </span>
+                    <span className="text-xs" style={{ color: "#6B7280" }}>
+                      Alex 🚀 Sam 🎯 Maya 💰 Dev 🔬 Zara 📊
+                    </span>
+                  </div>
+                  <p className="text-gray-400 text-xs leading-relaxed mt-2 line-clamp-6" style={{ whiteSpace: "pre-wrap", wordBreak: "break-word" }}>
+                    {latestMemo.preview}
+                  </p>
+                  <a
+                    href={latestMemo.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mt-3 text-xs font-medium"
+                    style={{ color: "#60a5fa" }}
+                  >
+                    Read Full Memo →
+                  </a>
+                </>
+              ) : (
+                <p className="text-gray-600 text-xs text-center py-2">No memo yet — runs every Sunday 7am ET</p>
+              )}
+            </div>
+          </section>
+
+          {/* Section 4 — Tasks */}
           <section>
             <TaskList />
           </section>
 
-          {/* Section 4 — Recent Decisions */}
+          {/* Section 5 — Recent Decisions */}
           <section>
             <h2 className="text-white font-semibold text-base mb-3">Recent Decisions</h2>
             <div
@@ -184,7 +242,7 @@ export default function Dashboard({ metrics, lastUpdated }: DashboardProps) {
             </div>
           </section>
 
-          {/* Section 5 — Quick Links */}
+          {/* Section 6 — Quick Links */}
           <section>
             <h2 className="text-white font-semibold text-base mb-3">Quick Links</h2>
             <div className="grid grid-cols-4 gap-2">
