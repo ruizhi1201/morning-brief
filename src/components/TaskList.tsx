@@ -3,11 +3,15 @@
 import { useEffect, useState } from "react";
 
 const TASKS = [
-  "Connect NextSport to real AI analysis pipeline",
-  "Create $14.99/mo Stripe price for NextSport",
-  "Check Meta ad account reinstatement",
-  "Wire swing analysis into NextSport /api/analyze",
-  "Set up nextsportai.com domain",
+  // ✅ Done by Sonny overnight (Mar 24):
+  // - GPT-4o vision analysis wired into NextSport /api/analyze
+  // - Stripe product + $14.99/mo price created (price_1TEO46BomMd7h7rZq2OKgn2Z)
+  // - Stripe checkout updated to use real price ID
+  "Run supabase/schema.sql in Supabase SQL editor (czfwjtkntetqgodndhmc)",
+  "Register Stripe webhook in Stripe dashboard → /api/stripe/webhook",
+  "Check Meta ad account reinstatement (appeal submitted Mar 23)",
+  "Test NextSport live: upload a swing video and verify AI analysis works",
+  "Set up nextsportai.com domain (optional)",
 ];
 
 function getTodayKey() {
