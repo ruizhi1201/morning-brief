@@ -7,11 +7,20 @@ const TASKS = [
   // - GPT-4o vision analysis wired into NextSport /api/analyze
   // - Stripe product + $14.99/mo price created (price_1TEO46BomMd7h7rZq2OKgn2Z)
   // - Stripe checkout updated to use real price ID
-  "Run supabase/schema.sql in Supabase SQL editor (czfwjtkntetqgodndhmc)",
-  "Register Stripe webhook in Stripe dashboard → /api/stripe/webhook",
-  "Check Meta ad account reinstatement (appeal submitted Mar 23)",
-  "Test NextSport live: upload a swing video and verify AI analysis works",
-  "Set up nextsportai.com domain (optional)",
+  //
+  // ✅ Done by Sonny overnight (Mar 25):
+  // - Stripe webhook for NextSport CREATED (we_1TEkYQBomMd7h7rZrzmJlJO9) → /api/stripe/webhook ✅
+  // - STRIPE_WEBHOOK_SECRET updated in Vercel + redeployed ✅
+  // - Referral tracking fixed: signup/?ref=CODE now records referrals in DB ✅
+  // - Dashboard shows Premium upgrade success toast ✅
+  // - Weekly token refill cron added (vercel.json, every Mon 9am UTC) ✅
+  // - Stuck "processing" analysis from Mar 24 cleaned up (marked failed, no tokens charged) ✅
+  // - 2 users already signed up in the DB! ✅
+  "Check Meta ad account reinstatement (appeal submitted Mar 23) — restart Dayryz ads when clear",
+  "Test NextSport end-to-end: sign up → onboard → upload swing → check AI analysis works",
+  "Verify NextSport Stripe checkout → premium upgrade flow (Stripe webhook now live)",
+  "Consider adding nextsportai.com custom domain to NextSport Vercel project",
+  "Check Supabase email auth settings — disable confirmation email if users aren't activating",
 ];
 
 function getTodayKey() {
