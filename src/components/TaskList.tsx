@@ -16,11 +16,20 @@ const TASKS = [
   // - Weekly token refill cron added (vercel.json, every Mon 9am UTC) ✅
   // - Stuck "processing" analysis from Mar 24 cleaned up (marked failed, no tokens charged) ✅
   // - 2 users already signed up in the DB! ✅
+  //
+  // ✅ Done by Sonny overnight (Mar 29):
+  // - Aris Chronicles Ep 6 "Devon Sends a Link" fully produced & scheduled:
+  //   → TTS audio (onyx, 8.3 min), video rendered (10.8 MB), uploaded to Post Bridge
+  //   → Scheduled April 6 at 7am ET (Post Bridge Post ID: 7b13cf97)
+  //   → Plugs the content gap after Ep 5 (Apr 3) → Ep 6 (Apr 6)
+  // - GitHub repo cleaned: orphan branch, .gitignore for media, API keys scrubbed
+  // - Discovered: Post Bridge API is api.post-bridge.com (not api.postbridge.io)
   "Check Meta ad account reinstatement (appeal submitted Mar 23) — restart Dayryz ads when clear",
   "Test NextSport end-to-end: sign up → onboard → upload swing → check AI analysis works",
   "Verify NextSport Stripe checkout → premium upgrade flow (Stripe webhook now live)",
   "Consider adding nextsportai.com custom domain to NextSport Vercel project",
   "Check Supabase email auth settings — disable confirmation email if users aren't activating",
+  "🎬 Aris Chronicles: Episodes 7-10 still need production (written, no video yet) — Ep 7 should go Apr 7",
 ];
 
 function getTodayKey() {
