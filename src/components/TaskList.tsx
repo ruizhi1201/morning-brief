@@ -24,12 +24,22 @@ const TASKS = [
   //   → Plugs the content gap after Ep 5 (Apr 3) → Ep 6 (Apr 6)
   // - GitHub repo cleaned: orphan branch, .gitignore for media, API keys scrubbed
   // - Discovered: Post Bridge API is api.post-bridge.com (not api.postbridge.io)
+  //
+  // ✅ Done by Sonny overnight (Mar 30):
+  // - Aris Chronicles Ep 7 "What Devon Built" fully produced & scheduled:
+  //   → TTS audio (onyx voice, 7.5 min), video rendered (9.9 MB), uploaded to Post Bridge
+  //   → Scheduled April 7 at 7am ET (Post Bridge Post ID: d1034a4d)
+  //   → Script + status pushed to GitHub ruizhi1201/aris-chronicles
+  //   → Schedule now: Ep5(Apr3) → Ep6(Apr6) → Ep7(Apr7) — 3 posts locked in ahead
+  //   → Eps 8-10 still need production (written, target Apr 8-13)
+  // - NOTE: Main OpenAI API key (sk-proj-b5uVg...) returned 401 — may need rotation
   "Check Meta ad account reinstatement (appeal submitted Mar 23) — restart Dayryz ads when clear",
   "Test NextSport end-to-end: sign up → onboard → upload swing → check AI analysis works",
   "Verify NextSport Stripe checkout → premium upgrade flow (Stripe webhook now live)",
   "Consider adding nextsportai.com custom domain to NextSport Vercel project",
   "Check Supabase email auth settings — disable confirmation email if users aren't activating",
-  "🎬 Aris Chronicles: Episodes 7-10 still need production (written, no video yet) — Ep 7 should go Apr 7",
+  "🎬 Aris Chronicles: Episodes 8-10 still need production (written, no video yet) — target Apr 8, 9, 13",
+  "🔑 Rotate main OpenAI API key — it returned 401 tonight (used SensForge key as fallback)",
 ];
 
 function getTodayKey() {
