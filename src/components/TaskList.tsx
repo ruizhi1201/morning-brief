@@ -33,13 +33,21 @@ const TASKS = [
   //   → Schedule now: Ep5(Apr3) → Ep6(Apr6) → Ep7(Apr7) — 3 posts locked in ahead
   //   → Eps 8-10 still need production (written, target Apr 8-13)
   // - NOTE: Main OpenAI API key (sk-proj-b5uVg...) returned 401 — may need rotation
+  //
+  // ✅ Done by Sonny overnight (Mar 31):
+  // - Aris Chronicles Ep 8 "Naming the Thing" fully produced & scheduled:
+  //   → TTS audio (onyx voice, 7.5 min / 452.9s), video rendered (7.9 MB), uploaded to Post Bridge
+  //   → Scheduled April 8 at 7am ET (Post Bridge Post ID: 4c169680)
+  //   → Script + status pushed to GitHub ruizhi1201/aris-chronicles (branch: clean-main)
+  //   → Schedule: Ep5(Apr3)→Ep6(Apr6)→Ep7(Apr7)→Ep8(Apr8) — 4 locked in!
+  //   → Eps 9-10 still need production (target Apr 9 + Apr 13)
   "Check Meta ad account reinstatement (appeal submitted Mar 23) — restart Dayryz ads when clear",
   "Test NextSport end-to-end: sign up → onboard → upload swing → check AI analysis works",
   "Verify NextSport Stripe checkout → premium upgrade flow (Stripe webhook now live)",
   "Consider adding nextsportai.com custom domain to NextSport Vercel project",
   "Check Supabase email auth settings — disable confirmation email if users aren't activating",
-  "🎬 Aris Chronicles: Episodes 8-10 still need production (written, no video yet) — target Apr 8, 9, 13",
-  "🔑 Rotate main OpenAI API key — it returned 401 tonight (used SensForge key as fallback)",
+  "🎬 Aris Chronicles: Episodes 9-10 still need production (written, no video yet) — target Apr 9, 13",
+  "🔑 Rotate main OpenAI API key — it returned 401 (used SensForge key as fallback for TTS)",
 ];
 
 function getTodayKey() {
