@@ -1,5 +1,16 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Aris Chronicles Production Status
+
+| Episode | Title | Status | Scheduled |
+|---------|-------|--------|-----------|
+| Ep 9 | The Folder, Opened | ✅ Scheduled | Apr 9, 2026 7am ET |
+| Ep 10 | Give Me Something Impossible | ✅ Scheduled | Apr 13, 2026 7am ET |
+
+Post IDs: Ep9 `2cd0ad47` · Ep10 `e3e29e53` · Accounts: YouTube + TikTok
+
+---
+
 ## Getting Started
 
 First, run the development server:
@@ -27,7 +38,7 @@ To learn more about Next.js, take a look at the following resources:
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+You can check out the [Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
 ## Deploy on Vercel
 
